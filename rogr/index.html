@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Rogr – Walkie-Talkie für die Apple Watch</title>
+<style>
+  body { font-family: -apple-system, system-ui, sans-serif; max-width: 42rem; margin: 2rem auto; padding: 0 1rem; line-height: 1.55; color: #222; }
+  h1 { font-size: 1.6rem; margin-bottom: .2rem; } h2 { font-size: 1.15rem; margin-top: 1.6rem; }
+  .sub { color: #666; margin-top: 0; }
+  .invite { background: #fff6cc; border: 1px solid #f0d000; border-radius: 14px; padding: 1rem 1.2rem; margin: 1.4rem 0; }
+  .code { font: 700 1.6rem ui-monospace, SFMono-Regular, Menlo, monospace; letter-spacing: .08em; margin: .4rem 0; }
+  .button { display: inline-block; background: #ffd100; color: #000; font-weight: 600; text-decoration: none; padding: .6rem 1.1rem; border-radius: 10px; margin-top: .3rem; }
+  footer { margin-top: 2.5rem; font-size: .9rem; color: #666; }
+  .heart { color: #e0245e; }
+  [data-lang] { display: none; }
+</style>
+</head>
+<body>
+
+<div data-lang="de">
+  <h1>Rogr</h1>
+  <p class="sub">Walkie-Talkie für die Apple Watch</p>
+  <div class="invite" id="invite-de" hidden>
+    <strong>Du wurdest zu Rogr eingeladen!</strong>
+    <div class="code" id="code-de"></div>
+    <ol>
+      <li>Rogr installieren: <a class="button" href="https://testflight.apple.com/join/MP6YcEup">Rogr über TestFlight laden</a></li>
+      <li>Danach diesen Einladungslink noch einmal antippen – oder in Rogr unter <em>Einstellungen → „Code eingeben“</em> den Code oben eingeben.</li>
+    </ol>
+  </div>
+  <p>Auf der Uhr gibt es einen großen Knopf: gedrückt halten und sprechen, loslassen sendet. Deine Freunde bekommen eine Mitteilung und hören den Funkspruch genau einmal – in Gruppen oder privat 1:1, verschlüsselt.</p>
+  <h2>Kontakt</h2>
+  <p>Fragen, Fehler, Ideen: <a href="mailto:info@bertramplischke.de">info@bertramplischke.de</a></p>
+</div>
+
+<div data-lang="en">
+  <h1>Rogr</h1>
+  <p class="sub">Walkie-talkie for your Apple Watch</p>
+  <div class="invite" id="invite-en" hidden>
+    <strong>You’ve been invited to Rogr!</strong>
+    <div class="code" id="code-en"></div>
+    <ol>
+      <li>Install Rogr: <a class="button" href="https://testflight.apple.com/join/MP6YcEup">Get Rogr on TestFlight</a></li>
+      <li>Then tap this invitation link again – or open Rogr, go to <em>Settings → “Enter code”</em> and enter the code above.</li>
+    </ol>
+  </div>
+  <p>Your watch shows one big button: hold it and talk, release to send. Your friends get a notification and hear the message exactly once – in groups or privately 1:1, encrypted.</p>
+  <h2>Contact</h2>
+  <p>Questions, bugs, ideas: <a href="mailto:info@bertramplischke.de">info@bertramplischke.de</a></p>
+</div>
+
+<footer>
+<p><a href="https://bertramplischke.github.io/impressum.html">Impressum</a> · Made with <span class="heart">❤</span> in Bräunrode</p>
+</footer>
+
+<script>
+  // Sprache des Geräts: Deutsch oder sonst Englisch
+  var lang = (navigator.language || "en").toLowerCase().indexOf("de") === 0 ? "de" : "en";
+  document.documentElement.lang = lang;
+  document.querySelector('[data-lang="' + lang + '"]').style.display = "block";
+  // Einladungscode aus dem Link (?c=K7PMX3QA) anzeigen – schön in Vierergruppen
+  var code = (new URLSearchParams(location.search).get("c") || "").toUpperCase().replace(/[^A-Z0-9]/g, "");
+  if (code.length >= 6) {
+    var pretty = code.match(/.{1,4}/g).join("-");
+    document.getElementById("code-" + lang).textContent = pretty;
+    document.getElementById("invite-" + lang).hidden = false;
+  }
+</script>
+</body>
+</html>

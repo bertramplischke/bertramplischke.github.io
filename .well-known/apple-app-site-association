@@ -1,0 +1,15 @@
+{
+  "applinks": {
+    "apps": [],
+    "details": [
+      {
+        "appIDs": ["FP6G4YQ5D5.de.bertramplischke.walkie"],
+        "components": [
+          { "/": "/rogr/*", "comment": "Rogr: Einladungen zu Gruppen und privaten Verbindungen" }
+        ],
+        "appID": "FP6G4YQ5D5.de.bertramplischke.walkie",
+        "paths": ["/rogr/*"]
+      }
+    ]
+  }
+}
