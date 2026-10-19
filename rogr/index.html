@@ -26,7 +26,7 @@
     <div class="code" id="code-de"></div>
     <ol>
       <li>Rogr installieren: <a class="button" href="https://testflight.apple.com/join/MP6YcEup">Rogr über TestFlight laden</a></li>
-      <li>Danach diesen Einladungslink noch einmal antippen – oder in Rogr unter <em>Einstellungen → „Code eingeben“</em> den Code oben eingeben.</li>
+      <li>Dann hier tippen: <a class="button open" href="#">In Rogr öffnen</a><br>– oder in Rogr unter <em>Einstellungen → „Code eingeben“</em> den Code oben eingeben.</li>
     </ol>
   </div>
   <p>Auf der Uhr gibt es einen großen Knopf: gedrückt halten und sprechen, loslassen sendet. Deine Freunde bekommen eine Mitteilung und hören den Funkspruch genau einmal – in Gruppen oder privat 1:1, verschlüsselt.</p>
@@ -42,7 +42,7 @@
     <div class="code" id="code-en"></div>
     <ol>
       <li>Install Rogr: <a class="button" href="https://testflight.apple.com/join/MP6YcEup">Get Rogr on TestFlight</a></li>
-      <li>Then tap this invitation link again – or open Rogr, go to <em>Settings → “Enter code”</em> and enter the code above.</li>
+      <li>Then tap here: <a class="button open" href="#">Open in Rogr</a><br>– or open Rogr, go to <em>Settings → “Enter code”</em> and enter the code above.</li>
     </ol>
   </div>
   <p>Your watch shows one big button: hold it and talk, release to send. Your friends get a notification and hear the message exactly once – in groups or privately 1:1, encrypted.</p>
@@ -65,6 +65,8 @@
     var pretty = code.match(/.{1,4}/g).join("-");
     document.getElementById("code-" + lang).textContent = pretty;
     document.getElementById("invite-" + lang).hidden = false;
+    // Rückfall, falls der Link im Browser statt in der App gelandet ist
+    document.querySelectorAll("a.open").forEach(function (a) { a.href = "rogr://join?c=" + code; });
   }
 </script>
 </body>
