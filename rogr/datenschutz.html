@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Datenschutz – Rogr</title>
+<style>
+  body { font-family: -apple-system, system-ui, sans-serif; max-width: 42rem; margin: 2rem auto; padding: 0 1rem; line-height: 1.55; color: #222; }
+  h1 { font-size: 1.6rem; } h2 { font-size: 1.15rem; margin-top: 1.6rem; }
+  footer { margin-top: 2.5rem; font-size: .9rem; color: #666; }
+  .heart { color: #e0245e; }
+  .switch { font-size: .9rem; }
+  [data-lang] { display: none; }
+</style>
+</head>
+<body>
+
+<p class="switch"><a href="#" onclick="show('de');return false">Deutsch</a> · <a href="#" onclick="show('en');return false">English</a></p>
+
+<div data-lang="de">
+<h1>Datenschutzerklärung – Rogr</h1>
+<p>Stand: 20. Oktober 2026</p>
+
+<h2>Kurz gesagt</h2>
+<p>Rogr hat keinen eigenen Server, keine Werbung, keine Analyse-Werkzeuge und kein Tracking. Funksprüche laufen über Apples iCloud und sind Ende-zu-Ende verschlüsselt: Nur wer in derselben Gruppe bzw. privaten Verbindung ist, kann sie abspielen – auch der Entwickler nicht. Jeder Funkspruch wird nach dem Anhören bzw. spätestens nach 24 Stunden gelöscht.</p>
+
+<h2>Welche Daten Rogr verarbeitet</h2>
+<ul>
+  <li><strong>Aufnahmen (Funksprüche):</strong> auf deinem Gerät mit dem Schlüssel des Kanals verschlüsselt (AES-GCM) und erst dann in Apples iCloud (öffentliche CloudKit-Datenbank der App) gespeichert. Der Schlüssel entsteht aus dem Gruppen-Code bzw. bei privaten Verbindungen durch einen Schlüsselaustausch zwischen euren Geräten – er verlässt die Geräte nie.</li>
+  <li><strong>Dein Foto</strong> (freiwillig): klein (128 × 128 Pixel) und genauso verschlüsselt mit jedem Funkspruch übertragen.</li>
+  <li><strong>Dein Anzeigename:</strong> wird unverschlüsselt mit jedem Funkspruch mitgeschickt, damit die Mitteilung „Funkspruch von Anna“ zeigen kann. Bei privaten Einladungen steht er bis zur Annahme in der Einladung.</li>
+  <li><strong>iCloud-Kennung:</strong> eine zufällige, nur für diese App gültige Kennung, die Apple vergibt (nicht deine Apple-ID oder E-Mail-Adresse). Sie kennzeichnet, von wem ein Funkspruch kommt – damit du dich nicht selbst hörst und Personen blockieren kannst.</li>
+  <li><strong>Kanal-Kennung:</strong> eine Prüfsumme – nicht der Gruppen-Code selbst. Gruppennamen werden verschlüsselt gespeichert.</li>
+  <li><strong>Mitteilungen:</strong> Damit neue Funksprüche gemeldet werden, legt die App bei iCloud ein Abo pro Kanal an; zugestellt werden die Mitteilungen über Apples Push-Dienst.</li>
+  <li><strong>Auf deinen Geräten:</strong> Einstellungen, Kanäle, gehörte Funksprüche, wer zuletzt gefunkt hat und zwischengespeicherte Fotos. Diese Daten gleichen sich zwischen deinem iPhone und deiner Apple Watch ab (über Apples Watch-Verbindung).</li>
+</ul>
+
+<h2>Speicherdauer</h2>
+<p>Funksprüche: bis zum Anhören, höchstens 24 Stunden – danach löscht sie die App des Absenders und zusätzlich ein täglicher Aufräum-Auftrag des Entwicklers. Private Einladungen: bis zur Annahme oder Rücknahme. Gruppennamen: solange die Gruppe genutzt wird. Daten auf deinen Geräten: bis du Rogr löschst.</p>
+
+<h2>Wer die Daten verarbeitet</h2>
+<p>Gespeichert und zugestellt wird über Apple (iCloud/CloudKit und Apple-Push-Dienst); es gilt die <a href="https://www.apple.com/de/legal/privacy/">Datenschutzrichtlinie von Apple</a>. Die Einladungs- und Hilfeseiten liegen bei GitHub Pages; GitHub kann beim Aufruf technische Zugriffsdaten (z. B. IP-Adresse) protokollieren. Weitere Empfänger gibt es nicht.</p>
+
+<h2>Käufe</h2>
+<p>Abos und Einmalkauf werden vollständig über den App Store von Apple abgewickelt. Die App erfährt nur, ob eine Freischaltung besteht; Zahlungsdaten sieht sie nie.</p>
+
+<h2>Melden</h2>
+<p>Wenn du in der App jemanden meldest, öffnet sich dein E-Mail-Programm mit einer vorbereiteten Nachricht an den Entwickler (Name, iCloud-Kennung, Kanal und Zeitpunkt). Sie wird nur zur Bearbeitung der Meldung verwendet und nicht weitergegeben.</p>
+
+<h2>Rechtsgrundlage und deine Rechte</h2>
+<p>Die Verarbeitung ist zur Nutzung der App erforderlich (Art. 6 Abs. 1 lit. b DSGVO). Du hast das Recht auf Auskunft, Berichtigung, Löschung, Einschränkung, Datenübertragbarkeit und Widerspruch sowie auf Beschwerde bei einer Datenschutz-Aufsichtsbehörde. Da Funksprüche verschlüsselt sind und nach spätestens 24 Stunden verschwinden, liegen beim Entwickler in der Regel keine lesbaren Daten über dich vor. Du kannst Kanäle in der App jederzeit verlassen und Rogr löschen. Bei Fragen schreib gern an die unten stehende Adresse.</p>
+</div>
+
+<div data-lang="en">
+<h1>Privacy Policy – Rogr</h1>
+<p>Last updated: 20 October 2026</p>
+
+<h2>In short</h2>
+<p>Rogr has no server of its own, no ads, no analytics and no tracking. Messages travel through Apple’s iCloud and are end-to-end encrypted: only people in the same group or private connection can play them – not even the developer. Each message is deleted after listening or after 24 hours at the latest.</p>
+
+<h2>What data Rogr processes</h2>
+<ul>
+  <li><strong>Recordings (messages):</strong> encrypted on your device with the channel’s key (AES-GCM) before being stored in Apple’s iCloud (the app’s public CloudKit database). The key is derived from the group code or, for private connections, from a key exchange between your devices – it never leaves the devices.</li>
+  <li><strong>Your photo</strong> (optional): small (128 × 128 pixels) and encrypted the same way with each message.</li>
+  <li><strong>Your display name:</strong> sent unencrypted with each message so the notification can say “Message from Anna”. For private invitations it is part of the invitation until accepted.</li>
+  <li><strong>iCloud identifier:</strong> a random identifier issued by Apple that is only valid for this app (not your Apple Account or email address). It marks who a message is from – so you don’t hear yourself and can block people.</li>
+  <li><strong>Channel identifier:</strong> a checksum – not the group code itself. Group names are stored encrypted.</li>
+  <li><strong>Notifications:</strong> to announce new messages, the app creates one iCloud subscription per channel; notifications are delivered via Apple’s push service.</li>
+  <li><strong>On your devices:</strong> settings, channels, heard messages, who recently talked and cached photos. These sync between your iPhone and Apple Watch (via Apple’s watch connection).</li>
+</ul>
+
+<h2>Retention</h2>
+<p>Messages: until heard, 24 hours at most – then the sender’s app deletes them, plus a daily clean-up job run by the developer. Private invitations: until accepted or withdrawn. Group names: as long as the group is in use. Data on your devices: until you delete Rogr.</p>
+
+<h2>Who processes the data</h2>
+<p>Storage and delivery are handled by Apple (iCloud/CloudKit and the Apple Push Notification service); <a href="https://www.apple.com/legal/privacy/">Apple’s Privacy Policy</a> applies. The invitation and help pages are hosted on GitHub Pages; GitHub may log technical access data (e.g. IP address). There are no other recipients.</p>
+
+<h2>Purchases</h2>
+<p>Subscriptions and the one-time purchase are handled entirely by Apple’s App Store. The app only learns whether it is unlocked; it never sees payment data.</p>
+
+<h2>Reporting</h2>
+<p>If you report someone in the app, your email app opens with a prepared message to the developer (name, iCloud identifier, channel and time). It is only used to handle the report and is not shared.</p>
+
+<h2>Legal basis and your rights</h2>
+<p>Processing is necessary to use the app (Art. 6(1)(b) GDPR). You have the right to access, rectification, erasure, restriction, data portability and objection, and to lodge a complaint with a data protection authority. As messages are encrypted and disappear after 24 hours at the latest, the developer usually holds no readable data about you. You can leave channels in the app at any time and delete Rogr. If you have questions, write to the address below.</p>
+</div>
+
+<footer>
+<p>Verantwortlich / Controller: Bertram Plischke, Braunroder Hauptstr. 3, 06456 Arnstein OT Braunrode · E-Mail: <a href="mailto:info@bertramplischke.de">info@bertramplischke.de</a></p>
+<p><a href="index.html">Rogr</a> · <a href="https://bertramplischke.github.io/impressum.html">Impressum</a> · Made with <span class="heart">❤</span> in Bräunrode</p>
+</footer>
+
+<script>
+  function show(lang) {
+    document.querySelectorAll("[data-lang]").forEach(function (e) { e.style.display = e.dataset.lang === lang ? "block" : "none"; });
+    document.documentElement.lang = lang;
+  }
+  show((navigator.language || "en").toLowerCase().indexOf("de") === 0 ? "de" : "en");
+</script>
+</body>
+</html>
