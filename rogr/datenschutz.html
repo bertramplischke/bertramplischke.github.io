@@ -19,7 +19,7 @@
 
 <div data-lang="de">
 <h1>Datenschutzerklärung – Rogr</h1>
-<p>Stand: 20. Oktober 2026 (Anwesenheit ergänzt)</p>
+<p>Stand: 29. Oktober 2026 (Visitenkarte und iCloud-Sicherung ergänzt)</p>
 
 <h2>Kurz gesagt</h2>
 <p>Rogr hat keinen eigenen Server, keine Werbung, keine Analyse-Werkzeuge und kein Tracking. Funksprüche laufen über Apples iCloud und sind Ende-zu-Ende verschlüsselt: Nur wer in derselben Gruppe bzw. privaten Verbindung ist, kann sie abspielen – auch der Entwickler nicht. Jeder Funkspruch wird nach dem Anhören bzw. spätestens nach 24 Stunden gelöscht.</p>
@@ -33,11 +33,13 @@
   <li><strong>Kanal-Kennung:</strong> eine Prüfsumme – nicht der Gruppen-Code selbst. Gruppennamen werden verschlüsselt gespeichert.</li>
   <li><strong>Anwesenheit:</strong> Solange Rogr bei dir geöffnet ist, meldet die App etwa jede Minute „gerade da“ (deine iCloud-Kennung, die Kennungen deiner Kanäle, ob du stumm geschaltet hast, und wie lange die Meldung gilt – höchstens 2½ Minuten). Mitglieder deiner Kanäle sehen daran „live“ bzw. „stumm“. Schließt du die App, wird die Meldung sofort beendet.</li>
   <li><strong>Mitteilungen:</strong> Damit neue Funksprüche gemeldet werden, legt die App bei iCloud ein Abo pro Kanal an; zugestellt werden die Mitteilungen über Apples Push-Dienst.</li>
+  <li><strong>Visitenkarte</strong> (freiwillig): Legst du im Tab „Karte“ eine Visitenkarte an, speichert die App in iCloud (öffentliche CloudKit-Datenbank) deinen Anzeigenamen, deine iCloud-Kennung und einen öffentlichen Schlüssel unter einem zufälligen Code. Wer den Code kennt (QR-Code, Link, NFC-Aufkleber), kann deinen Namen sehen und dir eine Anfrage schicken – mit seinem Namen, seiner iCloud-Kennung und seinem öffentlichen Schlüssel. Erst wenn du annimmst, entsteht eine private Verbindung mit eigenem Schlüssel.</li>
+  <li><strong>Sicherung in deiner iCloud:</strong> Name, Foto, Kanäle (mit ihren Schlüsseln), eigene Namen für Personen, gesperrte und zuletzt gehörte Personen werden in deinem <em>privaten</em> iCloud-Bereich der App gesichert, zusätzlich verschlüsselt (CloudKit „Encrypted Bytes“). Nur deine Apple-ID kann sie lesen – der Entwickler nicht. So kann Rogr nach einer Neuinstallation alles wiederherstellen.</li>
   <li><strong>Auf deinen Geräten:</strong> Einstellungen, Kanäle, gehörte Funksprüche, wer zuletzt gefunkt hat und zwischengespeicherte Fotos. Diese Daten gleichen sich zwischen deinem iPhone und deiner Apple Watch ab (über Apples Watch-Verbindung).</li>
 </ul>
 
 <h2>Speicherdauer</h2>
-<p>Funksprüche: bis zum Anhören, höchstens 24 Stunden – danach löscht sie die App des Absenders und zusätzlich ein täglicher Aufräum-Auftrag des Entwicklers. Private Einladungen: bis zur Annahme oder Rücknahme. Gruppennamen: solange die Gruppe genutzt wird. Daten auf deinen Geräten: bis du Rogr löschst.</p>
+<p>Funksprüche: bis zum Anhören, höchstens 24 Stunden – danach löscht sie die App des Absenders und zusätzlich ein täglicher Aufräum-Auftrag des Entwicklers. Private Einladungen: bis zur Annahme oder Rücknahme. Gruppennamen: solange die Gruppe genutzt wird. Visitenkarte: bis du einen neuen Code erzeugst. Anfragen an eine Karte: derzeit unbefristet; ein automatisches Aufräumen alter Anfragen ist geplant. Sicherung: bis du sie in den iCloud-Einstellungen löschst (Einstellungen → dein Name → iCloud → Speicher verwalten → Rogr). Daten auf deinen Geräten: bis du Rogr löschst.</p>
 
 <h2>Wer die Daten verarbeitet</h2>
 <p>Gespeichert und zugestellt wird über Apple (iCloud/CloudKit und Apple-Push-Dienst); es gilt die <a href="https://www.apple.com/de/legal/privacy/">Datenschutzrichtlinie von Apple</a>. Die Einladungs- und Hilfeseiten liegen bei GitHub Pages; GitHub kann beim Aufruf technische Zugriffsdaten (z. B. IP-Adresse) protokollieren. Weitere Empfänger gibt es nicht.</p>
@@ -54,7 +56,7 @@
 
 <div data-lang="en">
 <h1>Privacy Policy – Rogr</h1>
-<p>Last updated: 20 October 2026 (presence added)</p>
+<p>Last updated: 29 October 2026 (contact card and iCloud backup added)</p>
 
 <h2>In short</h2>
 <p>Rogr has no server of its own, no ads, no analytics and no tracking. Messages travel through Apple’s iCloud and are end-to-end encrypted: only people in the same group or private connection can play them – not even the developer. Each message is deleted after listening or after 24 hours at the latest.</p>
@@ -68,11 +70,13 @@
   <li><strong>Channel identifier:</strong> a checksum – not the group code itself. Group names are stored encrypted.</li>
   <li><strong>Presence:</strong> while Rogr is open, the app reports “here now” about once a minute (your iCloud identifier, your channel identifiers, whether you are muted, and how long the report is valid – 2½ minutes at most). Members of your channels see “live” or “muted”. When you close the app, the report ends immediately.</li>
   <li><strong>Notifications:</strong> to announce new messages, the app creates one iCloud subscription per channel; notifications are delivered via Apple’s push service.</li>
+  <li><strong>Contact card</strong> (optional): if you create a card in the “Card” tab, the app stores your display name, your iCloud identifier and a public key in iCloud (public CloudKit database) under a random code. Anyone who knows the code (QR code, link, NFC sticker) can see your name and send you a request – with their name, iCloud identifier and public key. Only once you accept is a private connection with its own key created.</li>
+  <li><strong>Backup in your iCloud:</strong> name, photo, channels (with their keys), your own names for people, blocked and recent people are backed up in the app’s <em>private</em> iCloud space, additionally encrypted (CloudKit “Encrypted Bytes”). Only your Apple Account can read it – not the developer. This lets Rogr restore everything after reinstalling.</li>
   <li><strong>On your devices:</strong> settings, channels, heard messages, who recently talked and cached photos. These sync between your iPhone and Apple Watch (via Apple’s watch connection).</li>
 </ul>
 
 <h2>Retention</h2>
-<p>Messages: until heard, 24 hours at most – then the sender’s app deletes them, plus a daily clean-up job run by the developer. Private invitations: until accepted or withdrawn. Group names: as long as the group is in use. Data on your devices: until you delete Rogr.</p>
+<p>Messages: until heard, 24 hours at most – then the sender’s app deletes them, plus a daily clean-up job run by the developer. Private invitations: until accepted or withdrawn. Group names: as long as the group is in use. Contact card: until you create a new code. Requests to a card: currently kept indefinitely; automatic clean-up of old requests is planned. Backup: until you delete it in iCloud settings (Settings → your name → iCloud → Manage Storage → Rogr). Data on your devices: until you delete Rogr.</p>
 
 <h2>Who processes the data</h2>
 <p>Storage and delivery are handled by Apple (iCloud/CloudKit and the Apple Push Notification service); <a href="https://www.apple.com/legal/privacy/">Apple’s Privacy Policy</a> applies. The invitation and help pages are hosted on GitHub Pages; GitHub may log technical access data (e.g. IP address). There are no other recipients.</p>
