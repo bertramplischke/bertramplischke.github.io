@@ -8,9 +8,16 @@
   body { font-family: -apple-system, system-ui, sans-serif; max-width: 42rem; margin: 2rem auto; padding: 0 1rem; line-height: 1.55; color: #222; }
   h1 { font-size: 1.6rem; } h2 { font-size: 1.15rem; margin-top: 1.6rem; }
   footer { margin-top: 2.5rem; font-size: .9rem; color: #666; }
+  .switch { font-size: .9rem; }
+  [data-lang] { display: none; }
 </style>
+<noscript><style>[data-lang="de"] { display: block; }</style></noscript>
 </head>
 <body>
+
+<p class="switch"><a href="#" onclick="show('de');return false">Deutsch</a> · <a href="#" onclick="show('en');return false">English</a></p>
+
+<div data-lang="de">
 <h1>Datenschutzerklärung – Battery Duo</h1>
 <p>Stand: 19. Oktober 2026</p>
 
@@ -36,5 +43,45 @@
 <p>Verantwortlich: Bertram Plischke, Braunroder Hauptstr. 3, 06456 Arnstein OT Braunrode · E-Mail: <a href="mailto:info@bertramplischke.de">info@bertramplischke.de</a></p>
 <p><a href="index.html">Support</a> · <a href="https://bertramplischke.github.io/impressum.html">Impressum</a></p>
 </footer>
+</div>
+
+<div data-lang="en">
+<h1>Privacy Policy – Battery Duo</h1>
+<p>Last updated: 19 October 2026</p>
+
+<h2>In short</h2>
+<p>Battery Duo collects no personal data, creates no accounts and contains no advertising and no analytics tools. There is no server of its own to which the app sends anything.</p>
+
+<h2>What data the app processes</h2>
+<p>The app reads the battery level and charging status of your iPhone and your Apple Watch, as well as your display settings. These values are transmitted only between your iPhone and your Apple Watch (via Apple’s watch connection) and stored on the devices so that the complication can show them. They never leave your devices.</p>
+
+<h2>Purchases</h2>
+<p>Subscription and one-time purchase are handled entirely through Apple’s App Store. The app only receives from Apple the information whether a valid unlock exists. The app never sees payment data. Apple’s privacy policy applies.</p>
+
+<h2>Shortcuts</h2>
+<p>If you set up the optional Turbo update, the Shortcuts app from Apple runs an action that sends the battery level to your Apple Watch. It transmits the same values as in normal operation – only between your own devices. The ready-made shortcut is called “Battery Duo 🔄”.</p>
+
+<h2>Feedback</h2>
+<p>If you send feedback through the app, your email app opens with a prepared message to the developer. It contains your text as well as the version of the app and of the operating system. The email is used only to answer your request and is not passed on.</p>
+
+<h2>Your rights</h2>
+<p>Because the app collects no personal data, the developer holds no data about you that would need to be corrected or deleted. For questions, write to the address below.</p>
+
+<footer>
+<p>Controller: Bertram Plischke, Braunroder Hauptstr. 3, 06456 Arnstein OT Braunrode · Email: <a href="mailto:info@bertramplischke.de">info@bertramplischke.de</a></p>
+<p><a href="index.html">Support</a> · <a href="https://bertramplischke.github.io/impressum.html">Legal notice (Impressum)</a></p>
+</footer>
+</div>
+
+<script>
+  var titles = { de: "Datenschutz – Battery Duo", en: "Privacy Policy – Battery Duo" };
+  function show(lang) {
+    document.querySelectorAll("[data-lang]").forEach(function (e) { e.style.display = e.dataset.lang === lang ? "block" : "none"; });
+    document.documentElement.lang = lang;
+    document.title = titles[lang];
+  }
+  // Device language: German, otherwise English
+  show((navigator.language || "en").toLowerCase().indexOf("de") === 0 ? "de" : "en");
+</script>
 </body>
 </html>

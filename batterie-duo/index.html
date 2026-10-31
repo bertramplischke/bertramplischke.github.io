@@ -8,9 +8,16 @@
   body { font-family: -apple-system, system-ui, sans-serif; max-width: 42rem; margin: 2rem auto; padding: 0 1rem; line-height: 1.55; color: #222; }
   h1 { font-size: 1.6rem; } h2 { font-size: 1.15rem; margin-top: 1.6rem; }
   footer { margin-top: 2.5rem; font-size: .9rem; color: #666; }
+  .switch { font-size: .9rem; }
+  [data-lang] { display: none; }
 </style>
+<noscript><style>[data-lang="de"] { display: block; }</style></noscript>
 </head>
 <body>
+
+<p class="switch"><a href="#" onclick="show('de');return false">Deutsch</a> · <a href="#" onclick="show('en');return false">English</a></p>
+
+<div data-lang="de">
 <h1>Battery Duo – Support</h1>
 <p>Battery Duo zeigt den Akku deiner Apple Watch und deines iPhones gleichzeitig auf dem Zifferblatt – als Doppelring mit Datum, als Zahlen, Ringe oder Balken, farbig nach Füllstand.</p>
 
@@ -46,5 +53,54 @@
 <footer>
 <p><a href="datenschutz.html">Datenschutzerklärung</a> · <a href="https://bertramplischke.github.io/impressum.html">Impressum</a> · Made with ❤ in Bräunrode</p>
 </footer>
+</div>
+
+<div data-lang="en">
+<h1>Battery Duo – Support</h1>
+<p>Battery Duo shows the battery level of your Apple Watch and your iPhone on the watch face at the same time – as a double ring with the date, as numbers, rings or bars, colored by charge level.</p>
+
+<h2>Set up the complication</h2>
+<ol>
+<li>Open the Battery Duo app on your Apple Watch once (iPhone app “Watch” → Available Apps, if it is missing there).</li>
+<li>Press and hold the watch face → Edit → swipe to the complications → tap a slot → choose “Battery Duo”.</li>
+</ol>
+
+<h2>The iPhone value updates rarely</h2>
+<p>iOS lets apps run in the background only rarely. In the iPhone app, set up the “Turbo update”: a ready-made shortcut plus automations in the Shortcuts app send the value every time you use the iPhone, charge it, or the battery drops below a 5% step.</p>
+
+<h2>Turn on Background App Refresh</h2>
+<p>So that the iPhone value reaches the watch even when the app is not open, Battery Duo needs Background App Refresh. If the switch next to Battery Duo is grey, it is off for all apps:</p>
+<ol>
+<li>Settings → <b>General</b><br><img src="img/bg1.jpg" alt="" width="300"></li>
+<li>scroll down to <b>Background App Refresh</b><br><img src="img/bg2.jpg" alt="" width="300"></li>
+<li>at the top, tap <b>Background App Refresh</b> again<br><img src="img/bg3.jpg" alt="" width="300"></li>
+<li>choose <b>Wi-Fi &amp; Mobile Data</b><br><img src="img/bg4.jpg" alt="" width="300"></li>
+<li>turn on the switch for <b>Battery Duo</b><br><img src="img/bg5.jpg" alt="" width="300"></li>
+</ol>
+<p>The screenshots show the German system menus. The menu names in English iOS are the ones in the steps above.</p>
+<p>In Low Power Mode, iOS still pauses Background App Refresh – that is normal.</p>
+
+<h2>The value differs from the status bar</h2>
+<p>iOS reports the battery level to apps only in 5% steps. A difference of a few percent is normal.</p>
+
+<h2>Subscription, purchase, restore</h2>
+<p>The app is free to use for 3 days. After that you choose a yearly subscription or a one-time purchase. On a new device or after reinstalling, tap “Restore Purchases” in the settings. You manage and cancel subscriptions in the settings of your Apple Account.</p>
+
+<h2>Contact</h2>
+<p>Questions, requests, bugs: <a href="mailto:info@bertramplischke.de">info@bertramplischke.de</a> – or “Send Feedback” in the app.</p>
+
+<footer>
+<p><a href="datenschutz.html">Privacy Policy</a> · <a href="https://bertramplischke.github.io/impressum.html">Legal notice (Impressum)</a> · Made with ❤ in Bräunrode</p>
+</footer>
+</div>
+
+<script>
+  // Device language: German, otherwise English
+  function show(lang) {
+    document.querySelectorAll("[data-lang]").forEach(function (e) { e.style.display = e.dataset.lang === lang ? "block" : "none"; });
+    document.documentElement.lang = lang;
+  }
+  show((navigator.language || "en").toLowerCase().indexOf("de") === 0 ? "de" : "en");
+</script>
 </body>
 </html>
