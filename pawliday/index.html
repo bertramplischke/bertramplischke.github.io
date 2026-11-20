@@ -1,0 +1,160 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light dark">
+<meta name="description" content="Pawliday – Ferienhaus mit Hund: hundefreundliche Ferienhäuser in Europa finden. Die App ist in Entwicklung.">
+<title>Pawliday – Ferienhaus mit Hund</title>
+<style>
+  :root {
+    --terra: #B4531F;
+    --sand: #F3E3CF;
+    --gruen: #1E5631;
+    --bg: #fffaf4;
+    --text: #2b2118;
+    --muted: #6b5a4b;
+    --panel: #F3E3CF;
+    --rand: #e6d3bd;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --terra: #e8925f;
+      --sand: #3a2c20;
+      --gruen: #2f7a47;
+      --bg: #1b1713;
+      --text: #f3e9df;
+      --muted: #c4b4a4;
+      --panel: #2a211a;
+      --rand: #4a3a2c;
+    }
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.55;
+  }
+  a { color: var(--terra); }
+  main { max-width: 42rem; margin: 0 auto; padding: 0 1rem; }
+  .hero {
+    background: var(--gruen);
+    color: #fff;
+    padding: 2.2rem 1rem 1.8rem;
+    margin-bottom: 1.5rem;
+  }
+  .hero-inner { max-width: 42rem; margin: 0 auto; }
+  .hero h1 { font-size: 1.9rem; line-height: 1.2; margin: 0 0 .4rem; }
+  .hero p { margin: 0; font-size: 1.1rem; opacity: .95; }
+  h2 { font-size: 1.2rem; margin: 2rem 0 .5rem; color: var(--text); }
+  p, li { overflow-wrap: anywhere; }
+  .stand {
+    background: var(--panel);
+    border: 1px solid var(--rand);
+    border-left: 4px solid var(--terra);
+    border-radius: 8px;
+    padding: .75rem 1rem;
+    margin: 0 0 1rem;
+  }
+  ul.merkmale { padding-left: 1.2rem; }
+  ul.merkmale li { margin-bottom: .2rem; }
+  .figs {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(0, 240px));
+    justify-content: center;
+    gap: 1.25rem;
+    margin: 1.5rem 0 0;
+  }
+  figure { margin: 0; text-align: center; }
+  figure img {
+    display: block;
+    width: 100%;
+    max-width: 240px;
+    height: auto;
+    margin: 0 auto;
+    border-radius: 14px;
+    border: 1px solid var(--rand);
+  }
+  figcaption { font-size: .9rem; color: var(--muted); margin-top: .5rem; }
+  .box {
+    background: var(--panel);
+    border-radius: 10px;
+    padding: .9rem 1rem;
+    margin: .5rem 0;
+  }
+  footer {
+    margin: 2.5rem 0 2rem;
+    padding-top: 1rem;
+    border-top: 1px solid var(--rand);
+    font-size: .92rem;
+    color: var(--muted);
+  }
+  footer p { margin: .3rem 0; }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="hero-inner">
+    <h1>Pawliday – Ferienhaus mit Hund</h1>
+    <p>Hundefreundliche Ferienhäuser in Europa finden</p>
+  </div>
+</header>
+
+<main>
+
+<p class="stand"><strong>Stand:</strong> Die App ist in Entwicklung und läuft derzeit als Testversion für Android.</p>
+
+<h2>Was die App macht</h2>
+<p>Pawliday zeigt dir Ferienhäuser, in denen Hunde willkommen sind, alle an einem Ort. Du suchst nach Land, Region, Zeitraum, Personen und Hunden.</p>
+<p>Dann filterst du so genau, wie es bei Hunden nötig ist, ähnlich wie bei großen Buchungsseiten, nur für Hunde:</p>
+<ul class="merkmale">
+  <li>eingezäunter Garten und Zaunhöhe</li>
+  <li>Hundegebühr</li>
+  <li>Hunde des Gastgebers vor Ort</li>
+  <li>ganze Unterkunft für euch allein</li>
+  <li>Hundegröße</li>
+  <li>Näpfe und Hundebett</li>
+  <li>Tierarzt, Zoofachgeschäft und Badeplatz in der Nähe</li>
+  <li>ebenerdig</li>
+  <li>barrierefrei</li>
+  <li>Assistenzhund willkommen</li>
+</ul>
+<p>Die Treffer zeigst du als Liste oder auf der Karte. Favoriten speicherst du auf deinem Gerät.</p>
+
+<div class="figs">
+  <figure>
+    <img src="karte.jpg" width="360" height="640" alt="Pawliday-Testversion: Kartenansicht von Europa mit Markierungen für Unterkünfte und einer Vorschaukarte unten">
+    <figcaption>Testversion mit Beispieldaten</figcaption>
+  </figure>
+  <figure>
+    <img src="liste.jpg" width="360" height="640" alt="Pawliday-Testversion: Liste mit Unterkünften, Ausstattung für Hunde und Preisen">
+    <figcaption>Testversion mit Beispieldaten</figcaption>
+  </figure>
+</div>
+
+<h2>So verdient Pawliday Geld</h2>
+<div class="box">
+  <p>Pawliday ist ein Vermittler, keine Buchungsplattform. Gebucht wird direkt beim Anbieter. Der Mietvertrag kommt nur mit ihm zustande.</p>
+  <p>Die Links zu den Anbietern sind in der App als „Werbelink“ gekennzeichnet. Buchst du darüber, erhält Pawliday eventuell eine Provision. Dein Preis bleibt gleich.</p>
+  <p>Ein Teil der Unterkünfte stammt aus OpenStreetMap. Für diese gibt es keine Provision, ihre Links führen zur Website des Gastgebers.</p>
+  <p>Preise, Hundegebühren und Ausstattung kommen von den Anbietern. Maßgeblich sind die Angaben beim Anbieter.</p>
+</div>
+
+<h2>Datenschutz kurz</h2>
+<p>Kein Konto, kein Tracking, keine Werbe- oder Analyse-SDKs. Deine Favoriten bleiben auf deinem Telefon.</p>
+<p><a href="datenschutz.html">Datenschutzerklärung</a></p>
+
+<h2>Kontakt</h2>
+<p>Fragen, Fehler, Ideen: <a href="mailto:apps@bertramplischke.de">apps@bertramplischke.de</a></p>
+
+<footer>
+  <p>Karte: © OpenStreetMap-Mitwirkende, OpenMapTiles, OpenFreeMap</p>
+  <p>Pawliday wird betrieben von Bertram Plischke · <a href="../impressum.html">Impressum</a> · <a href="datenschutz.html">Datenschutz</a> · <a href="../index.html">Alle Apps</a></p>
+</footer>
+
+</main>
+</body>
+</html>

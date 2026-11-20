@@ -6,6 +6,7 @@
 - `index.html`, `impressum.html`: Startseite und Impressum
 - `rogr/`: Rogr-Support-Seite (`index.html`, mit Einladung `?c=CODE`), `datenschutz.html`
 - `cambuddy/`: CamBuddy (Dual-Kamera-App, seit 10.11.2026): `index.html` (Info/Hilfe DE+EN, Kontakt apps@), `datenschutz.html` (DE+EN, Verantwortlicher info@), `icon.png`
+- `pawliday/`: Pawliday – Ferienhaus mit Hund (in Entwicklung, seit 20.11.2026): `index.html` (Info, Bilder `karte.jpg`/`liste.jpg`), `datenschutz.html` (Verantwortlicher info@)
 - `batterie-duo/`, `fahrschulapp/`, `platzmacher/`: Seiten der anderen Apps (je `datenschutz.html`, teils `index.html`)
 - `.well-known/apple-app-site-association`: nicht anfassen ohne Grund
 - `.nojekyll`: GitHub Pages ohne Jekyll
