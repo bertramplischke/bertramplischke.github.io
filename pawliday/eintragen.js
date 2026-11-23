@@ -266,6 +266,13 @@
     if (fehler.length > 0) { zeigeFehler(fehler); return; }
 
     var fd = new FormData(formular);
+    // Alle Textfelder zusätzlich als ein JSON-Teil mit ausdrücklich UTF-8: Der Server liest bevorzugt diesen Teil,
+    // damit Umlaute und Sonderzeichen unabhängig von der Dekodierung einzelner Formularfelder ankommen.
+    var daten = {};
+    fd.forEach(function (wert, name) {
+      if (typeof wert === 'string' && !Object.prototype.hasOwnProperty.call(daten, name)) daten[name] = wert;
+    });
+    fd.append('daten', new Blob([JSON.stringify(daten)], { type: 'application/json; charset=utf-8' }), 'daten.json');
     fotos.forEach(function (f, i) { fd.append('fotos', f.blob, 'foto' + (i + 1) + '.jpg'); });
 
     sendet = true;
