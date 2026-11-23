@@ -1,0 +1,408 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light dark">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; img-src 'self' blob: data:; style-src 'unsafe-inline'; script-src 'self'; connect-src https://lwuwzxxgmfrplvrmcttr.supabase.co; base-uri 'none'; form-action 'none'">
+<meta name="referrer" content="no-referrer">
+<meta name="description" content="Gastgeber: Trage deine hundefreundliche Unterkunft kostenlos bei Pawliday – Urlaub mit Hund ein.">
+<title>Unterkunft eintragen – Pawliday</title>
+<style>
+  :root {
+    --terra: #B4531F;
+    --gruen: #1E5631;
+    --bg: #fffaf4;
+    --text: #2b2118;
+    --muted: #5f4f41;
+    --panel: #F3E3CF;
+    --rand: #cdb59a;
+    --feld: #ffffff;
+    --fehler: #a31515;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --terra: #e8925f;
+      --gruen: #2f7a47;
+      --bg: #1b1713;
+      --text: #f3e9df;
+      --muted: #cdbdad;
+      --panel: #2a211a;
+      --rand: #6b5744;
+      --feld: #241d17;
+      --fehler: #ff9d9d;
+    }
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    font-size: 1.1rem;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.55;
+  }
+  a { color: var(--terra); }
+  main { max-width: 42rem; margin: 0 auto; padding: 1.5rem 1rem 2rem; }
+  h1 { font-size: 1.7rem; line-height: 1.25; margin: 0 0 .5rem; }
+  h2 { font-size: 1.2rem; margin: 0 0 .6rem; }
+  p, li { overflow-wrap: anywhere; }
+  .stand {
+    background: var(--panel);
+    border: 1px solid var(--rand);
+    border-left: 4px solid var(--terra);
+    border-radius: 8px;
+    padding: .75rem 1rem;
+    margin: 1rem 0;
+  }
+  fieldset {
+    border: 1px solid var(--rand);
+    border-radius: 10px;
+    padding: 1rem;
+    margin: 0 0 1.25rem;
+  }
+  legend { font-weight: 700; padding: 0 .4rem; font-size: 1.15rem; }
+  .feld { margin: 0 0 1rem; }
+  .feld:last-child { margin-bottom: 0; }
+  label, .etikett { display: block; font-weight: 600; margin: 0 0 .25rem; }
+  .pflicht::after { content: " *"; color: var(--terra); }
+  .hilfe { display: block; font-size: .95rem; color: var(--muted); margin: .15rem 0 .35rem; font-weight: 400; }
+  input[type=text], input[type=email], input[type=tel], input[type=url], input[type=number], select, textarea {
+    width: 100%;
+    font: inherit;
+    color: var(--text);
+    background: var(--feld);
+    border: 2px solid var(--rand);
+    border-radius: 8px;
+    padding: .65rem .75rem;
+    min-height: 3rem;
+  }
+  textarea { min-height: 9rem; resize: vertical; }
+  input:focus-visible, select:focus-visible, textarea:focus-visible, button:focus-visible, a:focus-visible {
+    outline: 3px solid var(--terra);
+    outline-offset: 2px;
+  }
+  [aria-invalid=true] { border-color: var(--fehler); }
+  .zeile { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+  @media (max-width: 30rem) { .zeile { grid-template-columns: 1fr; } }
+  .auswahl { display: flex; gap: 1.5rem; flex-wrap: wrap; }
+  .auswahl label { display: flex; align-items: center; gap: .5rem; font-weight: 400; margin: 0; min-height: 3rem; }
+  input[type=radio], input[type=checkbox] { width: 1.5rem; height: 1.5rem; accent-color: var(--gruen); flex: none; }
+  .haken { display: flex; gap: .7rem; align-items: flex-start; font-weight: 400; margin: 0 0 .9rem; }
+  .haken input { margin-top: .2rem; }
+  .zaehler { font-size: .95rem; color: var(--muted); text-align: right; }
+  .fehlertext { color: var(--fehler); font-weight: 600; margin: .25rem 0 0; }
+  #fehlerbox, #status {
+    border-radius: 8px;
+    padding: .8rem 1rem;
+    margin: 1rem 0;
+  }
+  #fehlerbox { border: 2px solid var(--fehler); }
+  #fehlerbox ul { margin: .4rem 0 0; padding-left: 1.2rem; }
+  #fehlerbox[hidden], #status[hidden] { display: none; }
+  #status { background: var(--panel); border: 1px solid var(--rand); }
+  .knopf {
+    font: inherit;
+    font-weight: 700;
+    color: #fff;
+    background: var(--gruen);
+    border: 0;
+    border-radius: 10px;
+    padding: .9rem 1.5rem;
+    min-height: 3.25rem;
+    cursor: pointer;
+    width: 100%;
+  }
+  .knopf[disabled] { opacity: .6; cursor: progress; }
+  .knopf.zweit { background: transparent; color: var(--terra); border: 2px solid var(--terra); width: auto; padding: .5rem 1rem; min-height: 3rem; }
+  #vorschau { list-style: none; display: grid; grid-template-columns: repeat(auto-fill, minmax(8rem, 1fr)); gap: .75rem; padding: 0; margin: .75rem 0 0; }
+  #vorschau li { position: relative; border: 1px solid var(--rand); border-radius: 8px; overflow: hidden; background: var(--feld); }
+  #vorschau img { display: block; width: 100%; height: 6.5rem; object-fit: cover; }
+  #vorschau button { width: 100%; font: inherit; font-size: .95rem; padding: .5rem; min-height: 2.75rem; border: 0; border-top: 1px solid var(--rand); background: transparent; color: var(--text); cursor: pointer; }
+  .falle { position: absolute; left: -10000px; width: 1px; height: 1px; overflow: hidden; }
+  footer { margin: 2rem 0 0; padding-top: 1rem; border-top: 1px solid var(--rand); font-size: .95rem; color: var(--muted); }
+  footer p { margin: .3rem 0; }
+</style>
+</head>
+<body>
+<main>
+
+<h1>Unterkunft bei Pawliday eintragen</h1>
+<p>Du vermietest eine Unterkunft, in der Hunde willkommen sind? Trage sie hier kostenlos ein. Gäste finden sie dann in der Pawliday-App und kommen über „Website des Gastgebers“ direkt zu dir.</p>
+
+<div class="stand">
+  <p style="margin:0 0 .5rem"><strong>So läuft es ab</strong></p>
+  <ol style="margin:0;padding-left:1.3rem">
+    <li>Du füllst das Formular aus und schickst es ab.</li>
+    <li>Du bekommst eine E-Mail mit einem Bestätigungslink (48 Stunden gültig).</li>
+    <li>Nach deiner Bestätigung prüfen wir den Eintrag und melden uns per E-Mail.</li>
+    <li>Nach der Freigabe ist die Unterkunft in der App sichtbar.</li>
+  </ol>
+  <p style="margin:.6rem 0 0">Der Eintrag ist kostenlos. Es gibt keine Provision und keinen Werbelink. Einen Anspruch auf Aufnahme gibt es nicht. Die App ist noch im Test.</p>
+</div>
+
+<p>Felder mit <span style="color:var(--terra)">*</span> sind Pflicht.</p>
+
+<div id="fehlerbox" role="alert" tabindex="-1" hidden></div>
+
+<form id="formular" method="post" novalidate>
+
+  <fieldset>
+    <legend>Die Unterkunft</legend>
+    <div class="feld">
+      <label for="titel" class="pflicht">Name der Unterkunft</label>
+      <input type="text" id="titel" name="titel" maxlength="120" required autocomplete="off">
+    </div>
+    <div class="feld">
+      <label for="unterkunftsart" class="pflicht">Art</label>
+      <select id="unterkunftsart" name="unterkunftsart" required>
+        <option value="">Bitte wählen</option>
+        <option value="haus">Haus</option>
+        <option value="wohnung">Wohnung</option>
+        <option value="sonstiges">Sonstiges</option>
+      </select>
+    </div>
+    <div class="feld">
+      <label for="land" class="pflicht">Land</label>
+      <select id="land" name="land" required>
+        <option value="">Bitte wählen</option>
+        <option value="DE">Deutschland</option>
+        <option value="AT">Österreich</option>
+        <option value="CH">Schweiz</option>
+        <option value="NL">Niederlande</option>
+        <option value="BE">Belgien</option>
+        <option value="LU">Luxemburg</option>
+        <option value="DK">Dänemark</option>
+        <option value="FR">Frankreich</option>
+        <option value="IT">Italien</option>
+        <option value="ES">Spanien</option>
+        <option value="PT">Portugal</option>
+        <option value="HR">Kroatien</option>
+        <option value="SI">Slowenien</option>
+        <option value="SK">Slowakei</option>
+        <option value="CZ">Tschechien</option>
+        <option value="PL">Polen</option>
+        <option value="HU">Ungarn</option>
+        <option value="GR">Griechenland</option>
+        <option value="SE">Schweden</option>
+        <option value="NO">Norwegen</option>
+        <option value="FI">Finnland</option>
+        <option value="IS">Island</option>
+        <option value="IE">Irland</option>
+        <option value="GB">Vereinigtes Königreich</option>
+        <option value="EE">Estland</option>
+        <option value="LV">Lettland</option>
+        <option value="LT">Litauen</option>
+        <option value="BG">Bulgarien</option>
+        <option value="RO">Rumänien</option>
+        <option value="ME">Montenegro</option>
+        <option value="RS">Serbien</option>
+        <option value="BA">Bosnien und Herzegowina</option>
+        <option value="AL">Albanien</option>
+        <option value="MK">Nordmazedonien</option>
+        <option value="XK">Kosovo</option>
+        <option value="MT">Malta</option>
+        <option value="CY">Zypern</option>
+        <option value="AD">Andorra</option>
+        <option value="LI">Liechtenstein</option>
+        <option value="MC">Monaco</option>
+        <option value="SM">San Marino</option>
+      </select>
+    </div>
+    <div class="zeile">
+      <div class="feld">
+        <label for="region">Region</label>
+        <span class="hilfe" id="h-region">Zum Beispiel „Ostsee“ oder „Eifel“ (freiwillig)</span>
+        <input type="text" id="region" name="region" maxlength="80" aria-describedby="h-region">
+      </div>
+      <div class="feld">
+        <label for="ort" class="pflicht">Ort</label>
+        <input type="text" id="ort" name="ort" maxlength="80" required>
+      </div>
+    </div>
+    <div class="feld">
+      <label for="adresse">Anschrift</label>
+      <span class="hilfe" id="h-adresse">Freiwillig. Hilft uns bei der Prüfung und wird nicht veröffentlicht.</span>
+      <input type="text" id="adresse" name="adresse" maxlength="200" autocomplete="street-address" aria-describedby="h-adresse">
+    </div>
+  </fieldset>
+
+  <fieldset>
+    <legend>Lage auf der Karte</legend>
+    <p style="margin-top:0">Wir brauchen den Kartenpunkt als Breiten- und Längengrad (Dezimalzahlen).</p>
+    <p class="hilfe" style="margin-top:0">So findest du die Koordinaten: Öffne <a href="https://www.openstreetmap.org/" target="_blank" rel="noopener noreferrer">openstreetmap.org</a>, suche deine Unterkunft, klicke mit der rechten Maustaste (am Handy: lange drücken) auf den Punkt und wähle „Adresse anzeigen“. Oben links stehen dann zwei Zahlen, zum Beispiel <em>54.4698, 9.0505</em>. Du kannst beide Zahlen auch ins erste Feld einfügen, wir teilen sie auf. Es wird keine Karte von einem fremden Server in diese Seite geladen.</p>
+    <div class="zeile">
+      <div class="feld">
+        <label for="lat" class="pflicht">Breitengrad</label>
+        <input type="text" id="lat" name="lat" inputmode="decimal" required autocomplete="off" placeholder="54.4698">
+      </div>
+      <div class="feld">
+        <label for="lng" class="pflicht">Längengrad</label>
+        <input type="text" id="lng" name="lng" inputmode="decimal" required autocomplete="off" placeholder="9.0505">
+      </div>
+    </div>
+  </fieldset>
+
+  <fieldset>
+    <legend>Platz und Preis</legend>
+    <div class="zeile">
+      <div class="feld">
+        <label for="max_personen" class="pflicht">Höchstens Personen</label>
+        <input type="number" id="max_personen" name="max_personen" min="1" max="50" step="1" inputmode="numeric" required>
+      </div>
+      <div class="feld">
+        <label for="max_hunde" class="pflicht">Höchstens Hunde</label>
+        <input type="number" id="max_hunde" name="max_hunde" min="1" max="10" step="1" inputmode="numeric" required>
+      </div>
+    </div>
+    <div class="zeile">
+      <div class="feld">
+        <label for="hundegebuehr" class="pflicht">Hundegebühr (Euro pro Hund und Nacht)</label>
+        <span class="hilfe" id="h-gebuehr">0 = kostenlos</span>
+        <input type="text" id="hundegebuehr" name="hundegebuehr" inputmode="decimal" required aria-describedby="h-gebuehr">
+      </div>
+      <div class="feld">
+        <label for="preis_ab">Preis ab (Euro pro Nacht)</label>
+        <span class="hilfe" id="h-preis">Freiwillig, der günstigste Preis</span>
+        <input type="text" id="preis_ab" name="preis_ab" inputmode="decimal" aria-describedby="h-preis">
+      </div>
+    </div>
+  </fieldset>
+
+  <fieldset>
+    <legend>Hunde und Garten</legend>
+    <div class="feld" role="radiogroup" aria-labelledby="l-garten">
+      <span class="etikett pflicht" id="l-garten">Eingezäunter Garten</span>
+      <div class="auswahl">
+        <label><input type="radio" name="garten_eingezaeunt" value="ja"> Ja</label>
+        <label><input type="radio" name="garten_eingezaeunt" value="nein"> Nein</label>
+      </div>
+    </div>
+    <div class="feld" id="zaun-feld" hidden>
+      <label for="zaunhoehe_cm">Zaunhöhe in cm</label>
+      <input type="number" id="zaunhoehe_cm" name="zaunhoehe_cm" min="30" max="300" step="1" inputmode="numeric">
+    </div>
+    <div class="feld" role="radiogroup" aria-labelledby="l-hunde">
+      <span class="etikett pflicht" id="l-hunde">Leben Hunde des Gastgebers auf dem Grundstück?</span>
+      <div class="auswahl">
+        <label><input type="radio" name="hunde_vor_ort" value="ja"> Ja</label>
+        <label><input type="radio" name="hunde_vor_ort" value="nein"> Nein</label>
+      </div>
+    </div>
+    <div class="feld">
+      <label for="hundegroesse_max">Größter willkommener Hund</label>
+      <select id="hundegroesse_max" name="hundegroesse_max">
+        <option value="">Keine Angabe</option>
+        <option value="klein">Klein (bis ca. 10 kg)</option>
+        <option value="mittel">Mittel (bis ca. 25 kg)</option>
+        <option value="gross">Groß (alle Größen)</option>
+      </select>
+    </div>
+    <div class="zeile">
+      <div class="feld">
+        <label for="alleinige_nutzung">Ganze Unterkunft samt Garten nur für die Gäste</label>
+        <select id="alleinige_nutzung" name="alleinige_nutzung"><option value="">Keine Angabe</option><option value="ja">Ja</option><option value="nein">Nein</option></select>
+      </div>
+      <div class="feld">
+        <label for="naepfe">Näpfe vorhanden</label>
+        <select id="naepfe" name="naepfe"><option value="">Keine Angabe</option><option value="ja">Ja</option><option value="nein">Nein</option></select>
+      </div>
+      <div class="feld">
+        <label for="hundebett">Hundebett vorhanden</label>
+        <select id="hundebett" name="hundebett"><option value="">Keine Angabe</option><option value="ja">Ja</option><option value="nein">Nein</option></select>
+      </div>
+      <div class="feld">
+        <label for="ebenerdig">Ebenerdig (ohne Treppen)</label>
+        <select id="ebenerdig" name="ebenerdig"><option value="">Keine Angabe</option><option value="ja">Ja</option><option value="nein">Nein</option></select>
+      </div>
+      <div class="feld">
+        <label for="barrierefrei">Barrierefrei</label>
+        <select id="barrierefrei" name="barrierefrei"><option value="">Keine Angabe</option><option value="ja">Ja</option><option value="nein">Nein</option></select>
+      </div>
+      <div class="feld">
+        <label for="assistenzhund_willkommen">Assistenzhund willkommen</label>
+        <select id="assistenzhund_willkommen" name="assistenzhund_willkommen"><option value="">Keine Angabe</option><option value="ja">Ja</option><option value="nein">Nein</option></select>
+      </div>
+    </div>
+  </fieldset>
+
+  <fieldset>
+    <legend>Website und Beschreibung</legend>
+    <div class="feld">
+      <label for="website_url" class="pflicht">Website der Unterkunft</label>
+      <span class="hilfe" id="h-url">Dorthin führt „Website des Gastgebers“ in der App. Die Adresse muss mit https:// beginnen.</span>
+      <input type="url" id="website_url" name="website_url" maxlength="300" required inputmode="url" placeholder="https://" aria-describedby="h-url" autocomplete="url">
+    </div>
+    <div class="feld">
+      <label for="beschreibung" class="pflicht">Kurzbeschreibung</label>
+      <span class="hilfe" id="h-beschr">In deinen eigenen Worten, 20 bis 600 Zeichen. Bitte keine Texte von anderen Seiten kopieren.</span>
+      <textarea id="beschreibung" name="beschreibung" maxlength="600" required aria-describedby="h-beschr zaehler"></textarea>
+      <div class="zaehler" id="zaehler" aria-live="polite">0 von 600 Zeichen</div>
+    </div>
+  </fieldset>
+
+  <fieldset>
+    <legend>Fotos (bis zu 5)</legend>
+    <p style="margin-top:0">Zeige die Unterkunft, den Garten und die Umgebung. Wir verkleinern die Fotos in deinem Browser auf höchstens 2000 Pixel Kantenlänge und entfernen dabei versteckte Angaben wie den Aufnahmeort. <strong>Lade nur Fotos hoch, die du selbst gemacht hast oder die du nutzen darfst, und auf denen keine Personen erkennbar sind.</strong></p>
+    <div class="feld">
+      <label for="foto-wahl">Fotos auswählen</label>
+      <input type="file" id="foto-wahl" accept="image/jpeg,image/png,image/webp,image/*" multiple>
+      <div class="zaehler" id="foto-zaehler" aria-live="polite">0 von 5 Fotos</div>
+      <ul id="vorschau"></ul>
+    </div>
+  </fieldset>
+
+  <fieldset>
+    <legend>Dein Kontakt</legend>
+    <p class="hilfe" style="margin-top:0">Diese Angaben sieht nur das Pawliday-Team. Sie werden nicht veröffentlicht.</p>
+    <div class="feld">
+      <label for="kontakt_name" class="pflicht">Dein Name</label>
+      <input type="text" id="kontakt_name" name="kontakt_name" maxlength="100" required autocomplete="name">
+    </div>
+    <div class="feld">
+      <label for="kontakt_email" class="pflicht">Deine E-Mail-Adresse</label>
+      <span class="hilfe" id="h-mail">An diese Adresse schicken wir den Bestätigungslink.</span>
+      <input type="email" id="kontakt_email" name="kontakt_email" maxlength="200" required autocomplete="email" inputmode="email" aria-describedby="h-mail">
+    </div>
+    <div class="feld">
+      <label for="kontakt_telefon">Telefon</label>
+      <span class="hilfe" id="h-tel">Freiwillig, für Rückfragen.</span>
+      <input type="tel" id="kontakt_telefon" name="kontakt_telefon" maxlength="40" autocomplete="tel" inputmode="tel" aria-describedby="h-tel">
+    </div>
+  </fieldset>
+
+  <fieldset>
+    <legend>Zustimmung</legend>
+    <label class="haken pflicht-haken" for="datenschutz_ok">
+      <input type="checkbox" id="datenschutz_ok" name="datenschutz_ok" value="ja">
+      <span>Ich habe die <a href="datenschutz.html#gastgeber" target="_blank" rel="noopener">Datenschutzerklärung</a> gelesen. *</span>
+    </label>
+    <label class="haken" for="bedingungen_ok">
+      <input type="checkbox" id="bedingungen_ok" name="bedingungen_ok" value="ja">
+      <span>Ich akzeptiere die <a href="gastgeber-bedingungen.html" target="_blank" rel="noopener">Bedingungen für Gastgeber</a>. *</span>
+    </label>
+    <label class="haken" for="fotorechte_ok">
+      <input type="checkbox" id="fotorechte_ok" name="fotorechte_ok" value="ja">
+      <span>Ich versichere, dass meine Angaben stimmen und ich die Rechte an den Fotos habe (oder sie nutzen darf). Ich erlaube Pawliday, Angaben und Fotos in der App und auf der Website anzuzeigen. *</span>
+    </label>
+  </fieldset>
+
+  <div class="falle" aria-hidden="true">
+    <label for="firma_url">Dieses Feld bitte leer lassen</label>
+    <input type="text" id="firma_url" name="firma_url" tabindex="-1" autocomplete="off">
+  </div>
+
+  <div id="status" role="status" aria-live="polite" hidden></div>
+  <button type="submit" class="knopf" id="senden">Eintragen und Bestätigungsmail erhalten</button>
+  <noscript><p class="fehlertext">Dieses Formular braucht JavaScript. Du kannst uns die Angaben auch per E-Mail an <a href="mailto:apps@bertramplischke.de">apps@bertramplischke.de</a> schicken.</p></noscript>
+</form>
+
+<footer>
+  <p>Fragen? <a href="mailto:apps@bertramplischke.de">apps@bertramplischke.de</a></p>
+  <p>Pawliday wird betrieben von Bertram Plischke · <a href="../impressum.html">Impressum</a> · <a href="datenschutz.html">Datenschutz</a> · <a href="gastgeber-bedingungen.html">Bedingungen für Gastgeber</a> · <a href="index.html">Pawliday</a></p>
+</footer>
+
+</main>
+<script src="eintragen.js"></script>
+</body>
+</html>
