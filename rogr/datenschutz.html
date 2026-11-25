@@ -19,10 +19,10 @@
 
 <div data-lang="de">
 <h1>Datenschutzerklärung – Rogr</h1>
-<p>Stand: 31. Oktober 2026 (Begriff „Letzten Funkspruch wiederholen“; Widgets ergänzt)</p>
+<p>Stand: 25. November 2026 (Kaufmeldungen von Apple ergänzt; Angaben zu Werbung und Empfängern genauer gefasst)</p>
 
 <h2>Kurz gesagt</h2>
-<p>Rogr hat keinen eigenen Server, keine Werbung, keine Analyse-Werkzeuge und kein Tracking. Funksprüche laufen über Apples iCloud und sind Ende-zu-Ende verschlüsselt: Nur wer in derselben Gruppe bzw. privaten Verbindung ist, kann sie abspielen – auch der Entwickler nicht. Jeder Funkspruch wird nach dem Anhören bzw. spätestens nach 24 Stunden gelöscht.</p>
+<p>Rogr zeigt keine Werbung in der App und nutzt keine Analyse-Werkzeuge und kein Tracking. Die App selbst spricht mit keinem eigenen Server des Entwicklers. Funksprüche laufen über Apples iCloud und sind Ende-zu-Ende verschlüsselt: Nur wer in derselben Gruppe bzw. privaten Verbindung ist, kann sie abspielen – auch der Entwickler nicht. Jeder Funkspruch wird nach dem Anhören bzw. spätestens nach 24 Stunden gelöscht. Eine Sache läuft anders: Wenn du in Rogr etwas kaufst oder ein Abo abschließt, meldet Apple den Kauf an den Entwickler – ohne deinen Namen (siehe „Kaufmeldungen von Apple“). Rogr selbst wird im App Store mit Suchanzeigen von Apple (Apple Ads) beworben; das betrifft die App nicht.</p>
 
 <h2>Welche Daten Rogr verarbeitet</h2>
 <ul>
@@ -40,27 +40,41 @@
 </ul>
 
 <h2>Speicherdauer</h2>
-<p>Funksprüche: bis zum Anhören, höchstens 24 Stunden – danach löscht sie die App des Absenders und zusätzlich ein täglicher Aufräum-Auftrag des Entwicklers. Lesebestätigungen („Gehört ✓“): nach 24 Stunden automatisch gelöscht. Zuletzt gehörter Funkspruch bei „Letzten Funkspruch wiederholen“: 1 Minute, nur auf dem Gerät. Private Einladungen: bis zur Annahme oder Rücknahme. Gruppennamen: solange die Gruppe genutzt wird. Visitenkarte: bis du einen neuen Code erzeugst. Anfragen an eine Karte: derzeit unbefristet; ein automatisches Aufräumen alter Anfragen ist geplant. Sicherung: bis du sie in den iCloud-Einstellungen löschst (Einstellungen → dein Name → iCloud → Speicher verwalten → Rogr). Daten auf deinen Geräten: bis du Rogr löschst.</p>
+<p>Funksprüche: bis zum Anhören, höchstens 24 Stunden – danach löscht sie die App des Absenders und zusätzlich ein täglicher Aufräum-Auftrag des Entwicklers. Lesebestätigungen („Gehört ✓“): nach 24 Stunden automatisch gelöscht. Zuletzt gehörter Funkspruch bei „Letzten Funkspruch wiederholen“: 1 Minute, nur auf dem Gerät. Private Einladungen: bis zur Annahme oder Rücknahme. Gruppennamen: solange die Gruppe genutzt wird. Visitenkarte: bis du einen neuen Code erzeugst. Anfragen an eine Karte: derzeit unbefristet; ein automatisches Aufräumen alter Anfragen ist geplant. Sicherung: bis du sie in den iCloud-Einstellungen löschst (Einstellungen → dein Name → iCloud → Speicher verwalten → Rogr). Daten auf deinen Geräten: bis du Rogr löschst. Kaufmeldungen von Apple (siehe unten): 25 Monate, danach werden sie automatisch gelöscht (Testmeldungen nach 30 Tagen).</p>
 
 <h2>Wer die Daten verarbeitet</h2>
-<p>Gespeichert und zugestellt wird über Apple (iCloud/CloudKit und Apple-Push-Dienst); es gilt die <a href="https://www.apple.com/de/legal/privacy/">Datenschutzrichtlinie von Apple</a>. Die Einladungs- und Hilfeseiten liegen bei GitHub Pages; GitHub kann beim Aufruf technische Zugriffsdaten (z. B. IP-Adresse) protokollieren. Weitere Empfänger gibt es nicht.</p>
+<p>Gespeichert und zugestellt wird über Apple (iCloud/CloudKit und Apple-Push-Dienst); es gilt die <a href="https://www.apple.com/de/legal/privacy/">Datenschutzrichtlinie von Apple</a>. Die Einladungs- und Hilfeseiten liegen bei GitHub Pages; GitHub kann beim Aufruf technische Zugriffsdaten (z. B. IP-Adresse) protokollieren. Die Kaufmeldungen von Apple landen auf dem Server des Entwicklers (Hosting bei rundum.digital, Rechenzentrum von Hetzner) – Einzelheiten im Abschnitt „Kaufmeldungen von Apple“. Darüber hinaus gibt es keine weiteren Empfänger.</p>
 
 <h2>Käufe</h2>
-<p>Abos und Einmalkauf werden vollständig über den App Store von Apple abgewickelt. Die App erfährt nur, ob eine Freischaltung besteht; Zahlungsdaten sieht sie nie.</p>
+<p>Abos und Einmalkauf werden vollständig über den App Store von Apple abgewickelt. Die App erfährt nur, ob eine Freischaltung besteht; Zahlungsdaten sieht sie nie. Apple meldet Käufe allerdings zusätzlich an den Entwickler, siehe nächster Abschnitt.</p>
+
+<h2>Kaufmeldungen von Apple</h2>
+<p>Wenn du in Rogr etwas kaufst, ein Abo startest, verlängerst oder kündigst, oder wenn eine Zahlung scheitert oder Apple eine Erstattung bearbeitet, schickt Apple dem Entwickler dazu automatisch eine Meldung (App Store Server Notifications). Sie kommt von Apples Servern, nicht von deinem Gerät – Rogr selbst sendet dafür nichts. Gespeichert wird nur Folgendes:</p>
+<ul>
+  <li>Zeitpunkt der Meldung und ob es ein echter Kauf oder ein Test war,</li>
+  <li>Art des Ereignisses (z. B. neuer Kauf, Probezeit, Verlängerung, Kündigung, abgelaufen, fehlgeschlagene Zahlung, Erstattungsantrag, Erstattung),</li>
+  <li>Produkt (z. B. Monatsabo), Preis und Währung, Land deines App Stores, Art des Angebots (z. B. Probezeit oder Angebotscode) und Ablaufdatum des Abos,</li>
+  <li>eine von Apple vergebene Kennung der Meldung (damit doppelte Meldungen erkannt werden),</li>
+  <li>ein Prüfwert der Apple-Transaktionsnummer (ein HMAC mit geheimem Salz). Aus ihm lässt sich die Nummer nicht zurückrechnen. Er dient nur dazu, mehrere Meldungen zum selben Kauf zusammenzuführen, z. B. „Probezeit wurde zum bezahlten Abo“.</li>
+</ul>
+<p>Nicht gespeichert werden dein Name, deine Apple-ID, deine E-Mail-Adresse, deine IP-Adresse und keine Kennung, die dich mit deinem Konto verbindet.</p>
+<p><strong>Wofür:</strong> Der Entwickler braucht die Meldungen für einen Überblick über seine Verkäufe, für die Buchhaltung und für den Kundenservice, z. B. wenn jemand eine Erstattung beantragt oder eine Zahlung nicht klappt. Bei Käufen bekommt er außerdem eine Mitteilung auf seine eigenen Geräte, etwa „Neues Abo: Monat, USA, 1,99 €“ – ohne Angaben zu dir als Person.</p>
+<p><strong>Wo und wer sieht es:</strong> Die Meldungen liegen auf einem Server des Entwicklers (Hosting bei rundum.digital, Rechenzentrum von Hetzner) und sind nur über sein persönliches Dashboard sichtbar. Der Entwickler kann sich Zahlen und einzelne Ereignisse (Zeit, App, Art, Produkt, Land, Preis – ohne den Prüfwert) auch von dem KI-Assistenten Claude von Anthropic zusammenfassen lassen; das passiert nur, wenn er es selbst anfordert. An weitere Stellen gibt er die Meldungen nicht weiter.</p>
+<p><strong>Rechtsgrundlage:</strong> Das berechtigte Interesse des Entwicklers an einer Verkaufsübersicht, richtiger Abrechnung und gutem Kundenservice (Art. 6 Abs. 1 lit. f DSGVO); soweit Aufbewahrungspflichten der Buchführung gelten, Art. 6 Abs. 1 lit. c DSGVO. Du kannst dem widersprechen (siehe „Rechtsgrundlage und deine Rechte“). Wie lange die Meldungen gespeichert bleiben, steht unter „Speicherdauer“.</p>
 
 <h2>Melden</h2>
 <p>Wenn du in der App jemanden meldest, öffnet sich dein E-Mail-Programm mit einer vorbereiteten Nachricht an den Entwickler (Name, iCloud-Kennung, Kanal und Zeitpunkt). Sie wird nur zur Bearbeitung der Meldung verwendet und nicht weitergegeben.</p>
 
 <h2>Rechtsgrundlage und deine Rechte</h2>
-<p>Die Verarbeitung ist zur Nutzung der App erforderlich (Art. 6 Abs. 1 lit. b DSGVO). Du hast das Recht auf Auskunft, Berichtigung, Löschung, Einschränkung, Datenübertragbarkeit und Widerspruch sowie auf Beschwerde bei einer Datenschutz-Aufsichtsbehörde. Da Funksprüche verschlüsselt sind und nach spätestens 24 Stunden verschwinden, liegen beim Entwickler in der Regel keine lesbaren Daten über dich vor. Du kannst Kanäle in der App jederzeit verlassen und Rogr löschen. Bei Fragen schreib gern an die unten stehende Adresse.</p>
+<p>Die Verarbeitung ist zur Nutzung der App erforderlich (Art. 6 Abs. 1 lit. b DSGVO). Du hast das Recht auf Auskunft, Berichtigung, Löschung, Einschränkung, Datenübertragbarkeit und Widerspruch sowie auf Beschwerde bei einer Datenschutz-Aufsichtsbehörde. Da Funksprüche verschlüsselt sind und nach spätestens 24 Stunden verschwinden, liegen beim Entwickler in der Regel keine lesbaren Daten aus deinen Funksprüchen vor. Für die Kaufmeldungen von Apple gilt die Rechtsgrundlage im gleichnamigen Abschnitt. Du kannst Kanäle in der App jederzeit verlassen und Rogr löschen. Bei Fragen schreib gern an die unten stehende Adresse.</p>
 </div>
 
 <div data-lang="en">
 <h1>Privacy Policy – Rogr</h1>
-<p>Last updated: 30 October 2026 (read receipts, Duo and “Replay last message” added)</p>
+<p>Last updated: 25 November 2026 (purchase notifications from Apple added; wording on ads and recipients made more precise)</p>
 
 <h2>In short</h2>
-<p>Rogr has no server of its own, no ads, no analytics and no tracking. Messages travel through Apple’s iCloud and are end-to-end encrypted: only people in the same group or private connection can play them – not even the developer. Each message is deleted after listening or after 24 hours at the latest.</p>
+<p>Rogr shows no ads in the app and uses no analytics and no tracking. The app itself does not talk to any server of the developer. Messages travel through Apple’s iCloud and are end-to-end encrypted: only people in the same group or private connection can play them – not even the developer. Each message is deleted after listening or after 24 hours at the latest. One thing works differently: when you buy something in Rogr or start a subscription, Apple reports the purchase to the developer – without your name (see “Purchase notifications from Apple”). Rogr itself is promoted in the App Store with Apple search ads (Apple Ads); this does not affect the app.</p>
 
 <h2>What data Rogr processes</h2>
 <ul>
@@ -78,19 +92,33 @@
 </ul>
 
 <h2>Retention</h2>
-<p>Messages: until heard, 24 hours at most – then the sender’s app deletes them, plus a daily clean-up job run by the developer. Read receipts (“Heard ✓”): automatically deleted after 24 hours. Last message kept for “Replay last message”: 1 minute, only on the device. Private invitations: until accepted or withdrawn. Group names: as long as the group is in use. Contact card: until you create a new code. Requests to a card: currently kept indefinitely; automatic clean-up of old requests is planned. Backup: until you delete it in iCloud settings (Settings → your name → iCloud → Manage Storage → Rogr). Data on your devices: until you delete Rogr.</p>
+<p>Messages: until heard, 24 hours at most – then the sender’s app deletes them, plus a daily clean-up job run by the developer. Read receipts (“Heard ✓”): automatically deleted after 24 hours. Last message kept for “Replay last message”: 1 minute, only on the device. Private invitations: until accepted or withdrawn. Group names: as long as the group is in use. Contact card: until you create a new code. Requests to a card: currently kept indefinitely; automatic clean-up of old requests is planned. Backup: until you delete it in iCloud settings (Settings → your name → iCloud → Manage Storage → Rogr). Data on your devices: until you delete Rogr. Purchase notifications from Apple (see below): 25 months, after which they are deleted automatically (test notifications after 30 days).</p>
 
 <h2>Who processes the data</h2>
-<p>Storage and delivery are handled by Apple (iCloud/CloudKit and the Apple Push Notification service); <a href="https://www.apple.com/legal/privacy/">Apple’s Privacy Policy</a> applies. The invitation and help pages are hosted on GitHub Pages; GitHub may log technical access data (e.g. IP address). There are no other recipients.</p>
+<p>Storage and delivery are handled by Apple (iCloud/CloudKit and the Apple Push Notification service); <a href="https://www.apple.com/legal/privacy/">Apple’s Privacy Policy</a> applies. The invitation and help pages are hosted on GitHub Pages; GitHub may log technical access data (e.g. IP address). Purchase notifications from Apple arrive on the developer’s server (hosted by rundum.digital, in a Hetzner data centre) – details in the section “Purchase notifications from Apple”. There are no other recipients.</p>
 
 <h2>Purchases</h2>
-<p>Subscriptions and the one-time purchase are handled entirely by Apple’s App Store. The app only learns whether it is unlocked; it never sees payment data.</p>
+<p>Subscriptions and the one-time purchase are handled entirely by Apple’s App Store. The app only learns whether it is unlocked; it never sees payment data. Apple does, however, also report purchases to the developer – see the next section.</p>
+
+<h2>Purchase notifications from Apple</h2>
+<p>When you buy something in Rogr, start, renew or cancel a subscription, or when a payment fails or Apple handles a refund, Apple automatically sends the developer a notification about it (App Store Server Notifications). It comes from Apple’s servers, not from your device – Rogr itself sends nothing for this. Only the following is stored:</p>
+<ul>
+  <li>time of the notification and whether it was a real purchase or a test,</li>
+  <li>type of event (e.g. new purchase, trial, renewal, cancellation, expired, failed payment, refund request, refund),</li>
+  <li>product (e.g. monthly subscription), price and currency, country of your App Store, type of offer (e.g. trial or offer code) and the subscription’s expiry date,</li>
+  <li>an identifier for the notification assigned by Apple (so that duplicates are recognised),</li>
+  <li>a check value of Apple’s transaction number (an HMAC with a secret salt). The number cannot be calculated back from it. It only serves to link several notifications about the same purchase, e.g. “trial became a paid subscription”.</li>
+</ul>
+<p>Not stored: your name, your Apple Account, your email address, your IP address, and any identifier that connects you to your account.</p>
+<p><strong>Purpose:</strong> The developer needs the notifications for an overview of his sales, for bookkeeping and for customer service, e.g. when someone requests a refund or a payment does not go through. For purchases he also gets a notification on his own devices, such as “New subscription: Monthly, USA, €1.99” – with no details about you as a person.</p>
+<p><strong>Where and who can see it:</strong> The notifications are stored on a server of the developer (hosted by rundum.digital, in a Hetzner data centre) and are only visible through his personal dashboard. The developer can also have numbers and single events (time, app, type, product, country, price – without the check value) summarised by the AI assistant Claude from Anthropic; this only happens when he requests it himself. He does not pass the notifications on to anyone else.</p>
+<p><strong>Legal basis:</strong> The developer’s legitimate interest in an overview of sales, correct accounting and good customer service (Art. 6(1)(f) GDPR); where bookkeeping retention duties apply, Art. 6(1)(c) GDPR. You can object to this (see “Legal basis and your rights”). How long the notifications are kept is stated under “Retention”.</p>
 
 <h2>Reporting</h2>
 <p>If you report someone in the app, your email app opens with a prepared message to the developer (name, iCloud identifier, channel and time). It is only used to handle the report and is not shared.</p>
 
 <h2>Legal basis and your rights</h2>
-<p>Processing is necessary to use the app (Art. 6(1)(b) GDPR). You have the right to access, rectification, erasure, restriction, data portability and objection, and to lodge a complaint with a data protection authority. As messages are encrypted and disappear after 24 hours at the latest, the developer usually holds no readable data about you. You can leave channels in the app at any time and delete Rogr. If you have questions, write to the address below.</p>
+<p>Processing is necessary to use the app (Art. 6(1)(b) GDPR). You have the right to access, rectification, erasure, restriction, data portability and objection, and to lodge a complaint with a data protection authority. As messages are encrypted and disappear after 24 hours at the latest, the developer usually holds no readable data from your messages. For purchase notifications from Apple, the legal basis is given in the section of that name. You can leave channels in the app at any time and delete Rogr. If you have questions, write to the address below.</p>
 </div>
 
 <footer>
